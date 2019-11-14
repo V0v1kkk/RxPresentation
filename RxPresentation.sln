@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RxMulticastingDemo", "RxMulticastingDemo\RxMulticastingDemo.csproj", "{2CD3C64C-5FD1-4173-83C5-BC374603592B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RxWebPageParseDemo", "RxWebPageParseDemo\RxWebPageParseDemo.csproj", "{8C54154F-4D03-4E84-A211-B0E2319B78B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2CD3C64C-5FD1-4173-83C5-BC374603592B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CD3C64C-5FD1-4173-83C5-BC374603592B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CD3C64C-5FD1-4173-83C5-BC374603592B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C54154F-4D03-4E84-A211-B0E2319B78B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C54154F-4D03-4E84-A211-B0E2319B78B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C54154F-4D03-4E84-A211-B0E2319B78B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C54154F-4D03-4E84-A211-B0E2319B78B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
