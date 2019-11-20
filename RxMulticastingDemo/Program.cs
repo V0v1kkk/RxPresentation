@@ -20,6 +20,7 @@ namespace RxMulticastingDemo
             observable.SubscribeConsole(1, ConsoleColor.DarkCyan); // subscriber 1
             observable.SubscribeConsole(2, ConsoleColor.DarkRed);  // subscriber 2
 
+            Console.ReadKey();
 
             var connectableObservable = observable.Publish();
 
