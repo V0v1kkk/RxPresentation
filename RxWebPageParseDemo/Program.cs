@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net.Http;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace RxWebPageParseDemo
 {
@@ -15,14 +9,15 @@ namespace RxWebPageParseDemo
         static void Main(string[] args)
         {
             var observable =
-                ObservableFromDynamicInterval(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+                ObservableFromRandomInterval(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
             var consoleWriteLock = new object();
-            var subscriber = observable
+
+            observable
                 .GetWebPageText(new Uri("https://stackexchange.com/questions?tab=realtime"))
                 .SelectTopics()
                 .FilterOnlyNew()
-                //.Select(list => list.Where(topic => topic.Link.Contains("stackoverflow")))
+                .SelectStackOverflow()
                 .Subscribe(newTopics =>
                 {
                     lock (consoleWriteLock)
@@ -41,10 +36,11 @@ namespace RxWebPageParseDemo
         }
 
 
-
-
-        static IObservable<Unit> ObservableFromDynamicInterval(TimeSpan period, TimeSpan notLess, TimeSpan maxIncrement)
+        private static IObservable<Unit> ObservableFromRandomInterval(TimeSpan notLess, TimeSpan maxIncrement)
         {
+            if (notLess > maxIncrement)
+                throw new ArgumentException("maxIncrement must be greater then notLess");
+
             var random = new Random();
             long LongRandom(long min, long max, Random rand)
             {

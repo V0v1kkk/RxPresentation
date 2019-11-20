@@ -6,9 +6,9 @@ namespace RxWebPageParseDemo
 {
     public class StackExchangeTopic : IEquatable<StackExchangeTopic>
     {
-        public string Title { get; private set; }
-        public string Link { get; private set; }
-        public List<string> Tags { get; private set; }
+        public string Title { get; }
+        public string Link { get; }
+        public List<string> Tags { get; }
 
         public StackExchangeTopic(string title, string link, List<string> tags)
         {

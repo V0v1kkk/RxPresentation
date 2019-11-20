@@ -58,6 +58,7 @@ namespace RxWebPageParseDemo
                             .Descendants()
                             .Where(d => d.HasClass("post-tag"))
                             .Select(node => node.InnerText)
+                            .Where(tagText => tagText != "spacer")
                             .ToList();
                         
                         var topic = new StackExchangeTopic(title, href, tags);
@@ -93,6 +94,12 @@ namespace RxWebPageParseDemo
 
                     return newTopics;
                 });
+        }
+
+        public static IObservable<IList<StackExchangeTopic>> SelectStackOverflow(this IObservable<IList<StackExchangeTopic>> observable)
+        {
+            return observable
+                .Select(list => list.Where(topic => topic.Link.Contains("stackoverflow")).ToList());
         }
 
     }
